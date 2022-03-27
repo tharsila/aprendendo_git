@@ -1,0 +1,60 @@
+Módulo GIT - Newtab Academy
+
+***Configuração***
+Para configurar os dados dos usuários:
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+Caso queira verificar as configurações atuais, utilizar o parâmetro --list:
+
+$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
+
+***Iniciando repositórios***
+Para iniciar um repositório usamos o comando git init. Ele criará o subdiretório .git e deixará tudo pronto para adição dos arquivos.
+
+Em seguida, será preciso incluir os arquivos desejados para serem controlados pelo Git. Para isso, utilizar o comando git add. Exemplo:
+
+$ git add .
+$ git add LICENSE
+O comando acima adiciona todos os arquivos presentes no diretório atual e o arquivo LICENSE ao Git. Feito isso eles estão em staging e prontos para commit.
+
+Verifique alterações, executando o comando git status para verificar o que está em staging (para ir no próximo commit) e o que esta na pasta de trabalho.
+
+$ git commit -m "first commit"
+O comando acima irá consolidar os arquivos adicionados em staging para o controle de versão do Git com a mensagem "first commit".
+
+Ate o momento, o repositório, commits e arquivos sob controle de versão estão apenas locais, nenhuma comunicação de rede foi feita. Para enviar para um repositório "central", utilizar o comando git push, porém antes é necessário configurar um remote para isso. Exemplo:
+
+$ git remote add origin https://github.com/tharsila/aprendendo_git.git
+
+Agora temos um repositório remoto apontando para o Github. Podemos efetuar o push com nossas alterações:
+
+$ git push -u origin main
+Isso fará com que o commit feito anteriormente sejá enviado para o Github. É possível trabalhar com vários repositórios remotos devido ao Git trabalhar de forma distribuida.
+
+
+***Baixando repositórios***
+Utilize o comando git clone [URL/Caminho do repositório] para baixar localmente todo o repositório remoto. Exemplo:
+
+$ git clone https://github.com/tharsila/aprendendo_git.git
+O comando acima irá baixar o repositório todo desta documentação dentro do diretório aprendendo_git. Você estará pronto para alterar arquivos, adicionar para commit (em staging) e efetuar seus commits e pushes.
+
+
+***Verificando diferenças***
+Após efetuar alterações, queremos ver o que exatamente foi alterado. Com o git diff é possível ver o que está diferente na pasta de trabalho  mas não em staging para commit
+
+
+***Atualizar & mesclar***
+Utilize o comando git pull para obter e fazer merge (mesclar) alterações remotas.
+Para fazer merge de um outra branch ao seu branch ativo (ex. main), use git merge <branch>
+
+
+-----------------
